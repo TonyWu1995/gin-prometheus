@@ -1,7 +1,7 @@
 package prometheus
 
 import (
-	"fmt"
+	"gin-prometheus/pkg/log"
 	"github.com/prometheus/client_golang/prometheus"
 )
 
@@ -44,16 +44,16 @@ func New() *Prometheus {
 		},
 	)
 	if err := prometheus.Register(reqCntMetric); err != nil {
-		fmt.Println(err)
+		log.Logger.Errorln(err)
 	}
 	if err := prometheus.Register(reqDurMetric); err != nil {
-		fmt.Println(err)
+		log.Logger.Errorln(err)
 	}
 	if err := prometheus.Register(reqSz); err != nil {
-		fmt.Println(err)
+		log.Logger.Errorln(err)
 	}
 	if err := prometheus.Register(resSz); err != nil {
-		fmt.Println(err)
+		log.Logger.Errorln(err)
 	}
 	return &Prometheus{
 		ReqCnt: reqCntMetric,
