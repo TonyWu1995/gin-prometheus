@@ -1,4 +1,4 @@
-module go-http-client
+module gin-prometheus
 
 go 1.19
 
