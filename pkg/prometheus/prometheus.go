@@ -62,23 +62,3 @@ func New() *Prometheus {
 		ResSz:  resSz,
 	}
 }
-
-//func HandlerFunc(p *Prometheus) gin.HandlerFunc {
-//	return func(c *gin.Context) {
-//		if c.Request.URL.Path == URL {
-//			c.Next()
-//			return
-//		}
-//		start := time.Now()
-//		c.Next()
-//		elapsed := float64(time.Since(start)) / float64(time.Second)
-//		status := strconv.Itoa(c.Writer.Status())
-//		url := c.Request.URL.Path
-//		resSz := float64(c.Writer.Size())
-//		reqSz := computeApproximateRequestSize(c.Request)
-//		p.reqDur.WithLabelValues(status, c.Request.Method, url).Observe(elapsed)
-//		p.reqCnt.WithLabelValues(status, c.Request.Method, c.HandlerName(), c.Request.Host, url).Inc()
-//		p.reqSz.Observe(float64(reqSz))
-//		p.resSz.Observe(resSz)
-//	}
-//}
